@@ -1,5 +1,6 @@
 package com.peactor.ifancms.beans.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -22,5 +23,6 @@ public class Banner extends BaseEntity {
 
     private String description;
 
+    @TableField(exist = false)
     private List<BannerItem> items;
 }

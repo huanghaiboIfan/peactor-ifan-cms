@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.peactor.ifancms.beans.entity.Theme;
 import com.peactor.ifancms.mapper.ThemeMapper;
 import com.peactor.ifancms.service.ThemeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class ThemeServiceImpl extends ServiceImpl<ThemeMapper, Theme> implements ThemeService {
 
-    @Autowired
+    @Resource
     private ThemeMapper themeMapper;
 
     @Override
@@ -31,4 +31,3 @@ public class ThemeServiceImpl extends ServiceImpl<ThemeMapper, Theme> implements
         return themeMapper.selectList(null);
     }
 }
-

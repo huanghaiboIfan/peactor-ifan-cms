@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peactor.ifancms.mapper.BannerMapper">
+
+    <resultMap id="bannerDetail" type="com.peactor.ifancms.beans.entity.Banner">
+        <id column="id" property="id"/>
+        <result property="name" column="name"/>
+        <result property="title" column="title"/>
+        <result property="img" column="img"/>
+        <result property="description" column="description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <collection property="items" column="id" select="findBannerItemByBannerId"/>
+    </resultMap>
+
+    <select id="findBannerItemByBannerId" resultType="com.peactor.ifancms.beans.entity.BannerItem">
+        SELECT * FROM banner_item where banner_id = ${id}
+    </select>
+
+    <select id="selectByName" resultMap="bannerDetail">
+        SELECT * FROM banner ban WHERE ban.name = #{name};
+    </select>
+</mapper>
