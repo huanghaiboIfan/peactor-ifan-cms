@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class LoginBean {
 
-    private String name;
+    private String account;
 
     private String password;
 
