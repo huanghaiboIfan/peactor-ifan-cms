@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public interface ThemeService extends IService<Theme> {
 
-    List<Theme> getByName(String name);
+    List<Theme> getByName(List<String> name);
 
     List<Theme> selectTest();
 }

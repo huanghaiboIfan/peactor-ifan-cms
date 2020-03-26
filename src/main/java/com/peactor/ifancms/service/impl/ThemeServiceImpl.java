@@ -21,9 +21,9 @@ public class ThemeServiceImpl extends ServiceImpl<ThemeMapper, Theme> implements
     private ThemeMapper themeMapper;
 
     @Override
-    public List<Theme> getByName(String name) {
+    public List<Theme> getByName(List<String> name) {
         QueryWrapper<Theme> qw = new QueryWrapper<>();
-        qw.like("name", name);
+        qw.in("name", name);
         return themeMapper.selectList(qw);
     }
 

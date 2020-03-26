@@ -1,6 +1,7 @@
 package com.peactor.ifancms.controller;
 
 import com.peactor.ifancms.beans.entity.Theme;
+import com.peactor.ifancms.beans.vo.SimpleList;
 import com.peactor.ifancms.http.HttpMsg;
 import com.peactor.ifancms.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,10 @@ public class ThemeController {
     @Autowired
     private ThemeService themeService;
 
-    @GetMapping("/getByNames/{name}")
-    public ResponseEntity getByNames(@PathVariable String name) {
-        List<Theme> themeList = themeService.getByName(name);
+    @PostMapping("/byNames")
+    public ResponseEntity getByNames(@RequestBody SimpleList<String> list) {
+        List<String> themes = list.getThemes();
+        List<Theme> themeList = themeService.getByName(themes);
         return ResponseEntity.ok(themeList);
     }
 
